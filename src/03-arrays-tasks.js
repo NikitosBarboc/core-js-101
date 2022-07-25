@@ -488,11 +488,10 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  const arr = new Array(n).fill(0);
-  return arr.map((elem, index) => {
-    const array = Array(index + 1).fill(elem);
-    array[index] = 1;
-    return array;
+  return Array.from({ length: n }, (x, i) => {
+    const arr = new Array(n).fill(0);
+    arr[i] = 1;
+    return arr;
   });
 }
 
@@ -526,10 +525,8 @@ function getIntervalArray(start, end) {
  *   [ 'a', 'a', 'a', 'a' ]  => [ 'a' ]
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
-function distinct(/* arr */) {
-  // return arr.filter(() => {
-  //   return 'с'
-  // });
+function distinct(arr) {
+  return arr.filter((elem, index, array) => (array.indexOf(elem) === index ? elem : null));
 }
 
 /**
@@ -562,8 +559,14 @@ function distinct(/* arr */) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  throw new Error('Not implemented');
+function group(array, keySelector, valueSelector) {
+  return array.reduce((p, c) => {
+    const key = keySelector(c);
+    const value = valueSelector(c);
+    const element = p.get(key) || [];
+    element.push(value);
+    return p.set(key, element);
+  }, new Map());
 }
 
 
@@ -580,8 +583,8 @@ function group(/* array, keySelector, valueSelector */) {
  *   [[1, 2], [3, 4], [5, 6]], (x) => x     =>   [ 1, 2, 3, 4, 5, 6 ]
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
-function selectMany(/* arr, childrenSelector */) {
-  throw new Error('Not implemented');
+function selectMany(arr, childrenSelector) {
+  return arr.reduce((acc, curr) => acc.concat(childrenSelector(curr)), []);
 }
 
 
@@ -597,8 +600,8 @@ function selectMany(/* arr, childrenSelector */) {
  *   ['one','two','three'], [2]       => 'three'  (arr[2])
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
-function getElementByIndexes(/* arr, indexes */) {
-  throw new Error('Not implemented');
+function getElementByIndexes(arr, indexes) {
+  return indexes.reduce((p, c) => p[c], arr);
 }
 
 
@@ -620,8 +623,12 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  const first = arr.slice(0, Math.floor(arr.length / 2));
+  const mid = arr.slice(Math.floor(arr.length / 2), Math.round(arr.length / 2));
+  console.log(mid);
+  const second = arr.slice(Math.round(arr.length / 2), arr.length);
+  return second.concat(mid).concat(first);
 }
 
 
