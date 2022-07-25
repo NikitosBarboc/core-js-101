@@ -233,12 +233,13 @@ function findFirstSingleChar(str) {
  *   5, 3, true, true   => '[3, 5]'
  *
  */
-function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  const start = isStartIncluded ? '[' : '(';
-  const end = isEndIncluded ? ']' : ')';
-  const max = Math.max(a, b);
-  const min = Math.min(a, b);
-  return `${start}${min}, ${max}${end}`;
+function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
+  // const start = isStartIncluded ? '[' : '(';
+  // const end = isEndIncluded ? ']' : ')';
+  // const max = Math.max(a, b);
+  // const min = Math.min(a, b);
+  // return `${start}${min}, ${max}${end}`;
+  throw new Error('Not implemented');
 }
 
 
@@ -365,14 +366,16 @@ function isBracketsBalanced(/* str */) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(num, n) {
-  let res = '';
-  let number = num;
-  while (number !== 0) {
-    res = (number % n) + res;
-    number = Math.trunc(number / n);
-  }
-  return res;
+function toNaryString(/* num, n */) {
+  // let res = '';
+  // let number = num;
+  // while (number !== 0) {
+  //   res = (number % n) + res;
+  //   number = Math.trunc(number / n);
+  // }
+  // return res;
+
+  throw new Error('Not implemented');
 }
 
 
@@ -388,21 +391,8 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(pathes) {
-  let cmnIndex;
-  const first = pathes[0];
-  for (let i = 0; i < first.length;) {
-    if (pathes.some((x) => x[i] !== first[i])) {
-      break;
-    }
-    if (first[i] === '/' || (i === first.length - 1)) {
-      cmnIndex = i;
-    }
-    i += 1;
-  }
-  if (cmnIndex === undefined) { return ''; }
-  if (cmnIndex === 0) { return first[0]; }
-  return first.slice(0, cmnIndex + 1);
+function getCommonDirectoryPath(/* pathes */) {
+  throw new Error('Not implemented');
 }
 
 
@@ -424,21 +414,8 @@ function getCommonDirectoryPath(pathes) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(m1, m2) {
-  const res = [];
-  for (let i = 0; i < m1.length;) {
-    res[i] = [];
-    for (let j = 0; j < m1.length;) {
-      res[i][j] = 0;
-      for (let k = 0; k < m2.length;) {
-        res[i][j] += m1[i][k] * m2[k][j];
-        k += 1;
-      }
-      j += 1;
-    }
-    i += 1;
-  }
-  return res;
+function getMatrixProduct(/* m1, m2 */) {
+  throw new Error('Not implemented');
 }
 
 
