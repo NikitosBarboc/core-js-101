@@ -458,6 +458,7 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(/* arr */) {
+  throw new Error('Not implemented');
   // return arr.sort((a, b) => {
   //   if (a.country < b.country) {
   //     return -1;
@@ -467,7 +468,6 @@ function sortCitiesArray(/* arr */) {
   //   }
   //   return 0;
   // });
-  throw new Error('Not implemented');
 }
 
 /**
@@ -627,7 +627,6 @@ function getElementByIndexes(arr, indexes) {
 function swapHeadAndTail(arr) {
   const first = arr.slice(0, Math.floor(arr.length / 2));
   const mid = arr.slice(Math.floor(arr.length / 2), Math.round(arr.length / 2));
-  console.log(mid);
   const second = arr.slice(Math.round(arr.length / 2), arr.length);
   return second.concat(mid).concat(first);
 }
