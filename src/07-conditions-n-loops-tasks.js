@@ -146,6 +146,7 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
   // const bottom1 = rect1.top + rect1.height;
   // const right2 = rect2.left + rect2.width;
   // const bottom2 = rect2.top + rect2.height;
+
   // return rect1.left < right2
   //     && right1 > rect2.left
   //     && rect1.top < bottom2
