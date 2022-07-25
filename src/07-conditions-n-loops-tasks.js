@@ -100,11 +100,12 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,1,1   =>  false
  *   10,10,10 =>  true
  */
-function isTriangle(a, b, c) {
-  if (a + b > c && a + c > b && c + b > a) {
-    return true;
-  }
-  return false;
+function isTriangle(/* a, b, c */) {
+  // if (a + b > c && a + c > b && c + b > a) {
+  //   return true;
+  // }
+  // return false;
+  throw new Error('Not implemented');
 }
 
 
