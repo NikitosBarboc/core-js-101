@@ -458,6 +458,7 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(/* arr */) {
+  throw new Error('Not implemented');
   // return arr.sort((a, b) => {
   //   if (a.country < b.country) {
   //     return -1;
@@ -467,7 +468,6 @@ function sortCitiesArray(/* arr */) {
   //   }
   //   return 0;
   // });
-  throw new Error('Not implemented');
 }
 
 /**
